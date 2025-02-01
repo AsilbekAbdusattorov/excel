@@ -10,49 +10,62 @@
             background-color: #f4f4f4;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Yuqori qism ko‘rinishi uchun */
             height: 100vh;
             margin: 0;
-            padding: 10px;
+            padding: 20px;
+            overflow: auto; /* Jadval chiqmay qolmasligi uchun */
         }
         .container {
             width: 100%;
-            max-width: 800px;
+            max-width: 1200px;
             background: white;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            border-radius: 10px;
             overflow-x: auto;
+            max-height: 90vh; /* Jadval ekran ichida qolishi uchun */
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
-            min-width: 600px;
+            margin-top: 15px;
+            min-width: 1500px;
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 10px;
+            padding: 12px;
             text-align: center;
+            font-size: 14px;
         }
         th {
             background-color: #007BFF;
             color: white;
+            padding: 14px;
         }
         tr:nth-child(even) {
             background-color: #f9f9f9;
+        }
+        /* Hover effekti */
+        tbody tr {
+            transition: background-color 0.3s ease-in-out;
+        }
+        tbody tr:hover {
+            background-color: rgba(0, 123, 255, 0.2);
         }
         @media (max-width: 600px) {
             body {
                 height: auto;
                 display: block;
+                padding: 10px;
             }
             .container {
                 padding: 15px;
+                max-height: none;
             }
             table {
                 min-width: 100%;
-                font-size: 14px;
+                font-size: 12px;
             }
             th, td {
                 padding: 8px;
@@ -68,46 +81,52 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Time</th>
+                        <!-- <th>Time</th> -->
                         <th>Container</th>
                         <th>Start</th>
                         <th>End</th>
                         <th>Remarks</th>
+                        <!-- Qo‘shimcha ustunlar -->
+                        <th>C1</th>
+                        <th>C2</th>
+                        <th>C3</th>
+                        <th>C4</th>
+                        <th>C5</th>
+                        <th>C6</th>
+                        <th>C7</th>
+                        <th>C8</th>
+                        <th>C9</th>
+                        <th>C10</th>
+                        <th>C11</th>
+                        <th>C12</th>
+                        <th>C13</th>
+                        <th>C14</th>
+                        <th>C15</th>
+                        <th>C16</th>
+                        <th>C17</th>
+                        <th>C18</th>
+                        <th>C19</th>
+                        <th>C20</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>08:00</td>
-                        <td>C-101</td>
-                        <td>Feb 1, 2025</td>
-                        <td>Feb 10, 2025</td>
-                        <td>Checked</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>10:30</td>
-                        <td>C-102</td>
-                        <td>Feb 2, 2025</td>
-                        <td>Feb 12, 2025</td>
-                        <td>Pending</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>13:15</td>
-                        <td>C-103</td>
-                        <td>Feb 3, 2025</td>
-                        <td>Feb 15, 2025</td>
-                        <td>In Progress</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>16:45</td>
-                        <td>C-104</td>
-                        <td>Feb 4, 2025</td>
-                        <td>Feb 20, 2025</td>
-                        <td>Completed</td>
-                    </tr>
+                    <!-- Pastdan yuqoriga tartiblangan -->
+                    <script>
+                        let tbody = '';
+                        for (let i = 26; i >= 1; i--) {
+                            tbody += `
+                                <tr>
+                                    <td>${i}</td>
+                                    <td>C-${100 + i}</td>
+                                    <td>Feb ${i}, 2025</td>
+                                    <td>Feb ${i + 5}, 2025</td>
+                                    <td>${i % 2 === 0 ? 'Pending' : 'Completed'}</td>
+                                    ${'<td>Data</td>'.repeat(20)}
+                                </tr>
+                            `;
+                        }
+                        document.write(tbody);
+                    </script>
                 </tbody>
             </table>
         </div>
