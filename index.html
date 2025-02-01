@@ -9,12 +9,27 @@
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Yuqori qism ko‘rinishi uchun */
+            flex-direction: column;
+            align-items: center;
             height: 100vh;
             margin: 0;
             padding: 20px;
-            overflow: auto; /* Jadval chiqmay qolmasligi uchun */
+            overflow: auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .header h2 {
+            margin: 5px 0;
+        }
+        .time-box {
+            background: #007BFF;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 18px;
         }
         .container {
             width: 100%;
@@ -24,13 +39,13 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             overflow-x: auto;
-            max-height: 90vh; /* Jadval ekran ichida qolishi uchun */
+            max-height: 85vh;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 15px;
-            min-width: 1500px;
+            min-width: 600px;
         }
         th, td {
             border: 1px solid #ddd;
@@ -46,34 +61,17 @@
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
-        /* Hover effekti */
-        tbody tr {
-            transition: background-color 0.3s ease-in-out;
-        }
         tbody tr:hover {
             background-color: rgba(0, 123, 255, 0.2);
-        }
-        @media (max-width: 600px) {
-            body {
-                height: auto;
-                display: block;
-                padding: 10px;
-            }
-            .container {
-                padding: 15px;
-                max-height: none;
-            }
-            table {
-                min-width: 100%;
-                font-size: 12px;
-            }
-            th, td {
-                padding: 8px;
-            }
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <h2>Date: <span id="current-date"></span></h2>
+        <div class="time-box">online time: <span id="current-time"></span></div>
+    </div>
+
     <div class="container">
         <h2>Time Container Table</h2>
         <div style="overflow-x: auto;">
@@ -81,47 +79,23 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <!-- <th>Time</th> -->
-                        <th>Container</th>
+                        <th>Time</th>
                         <th>Start</th>
                         <th>End</th>
                         <th>Remarks</th>
-                        <!-- Qo‘shimcha ustunlar -->
-                        <th>C1</th>
-                        <th>C2</th>
-                        <th>C3</th>
-                        <th>C4</th>
-                        <th>C5</th>
-                        <th>C6</th>
-                        <th>C7</th>
-                        <th>C8</th>
-                        <th>C9</th>
-                        <th>C10</th>
-                        <th>C11</th>
-                        <th>C12</th>
-                        <th>C13</th>
-                        <th>C14</th>
-                        <th>C15</th>
-                        <th>C16</th>
-                        <th>C17</th>
-                        <th>C18</th>
-                        <th>C19</th>
-                        <th>C20</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Pastdan yuqoriga tartiblangan -->
                     <script>
                         let tbody = '';
                         for (let i = 26; i >= 1; i--) {
                             tbody += `
                                 <tr>
                                     <td>${i}</td>
-                                    <td>C-${100 + i}</td>
+                                    <td>${(8 + (i % 12))}:00</td>
                                     <td>Feb ${i}, 2025</td>
                                     <td>Feb ${i + 5}, 2025</td>
                                     <td>${i % 2 === 0 ? 'Pending' : 'Completed'}</td>
-                                    ${'<td>Data</td>'.repeat(20)}
                                 </tr>
                             `;
                         }
@@ -131,5 +105,17 @@
             </table>
         </div>
     </div>
+
+    <script>
+        function updateTime() {
+            let now = new Date();
+            let date = now.toLocaleDateString();
+            let time = now.toLocaleTimeString();
+            document.getElementById("current-date").textContent = date;
+            document.getElementById("current-time").textContent = time;
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
 </body>
 </html>
