@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Container Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 80%;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Time Container Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Time</th>
+                    <th>Container</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>08:00</td>
+                    <td>C-101</td>
+                    <td>Feb 1, 2025</td>
+                    <td>Feb 10, 2025</td>
+                    <td>Checked</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>10:30</td>
+                    <td>C-102</td>
+                    <td>Feb 2, 2025</td>
+                    <td>Feb 12, 2025</td>
+                    <td>Pending</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>13:15</td>
+                    <td>C-103</td>
+                    <td>Feb 3, 2025</td>
+                    <td>Feb 15, 2025</td>
+                    <td>In Progress</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>16:45</td>
+                    <td>C-104</td>
+                    <td>Feb 4, 2025</td>
+                    <td>Feb 20, 2025</td>
+                    <td>Completed</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
