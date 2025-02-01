@@ -13,18 +13,22 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            padding: 10px;
         }
         .container {
-            width: 80%;
+            width: 100%;
+            max-width: 800px;
             background: white;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+            overflow-x: auto;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
+            min-width: 600px;
         }
         th, td {
             border: 1px solid #ddd;
@@ -38,57 +42,75 @@
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+        @media (max-width: 600px) {
+            body {
+                height: auto;
+                display: block;
+            }
+            .container {
+                padding: 15px;
+            }
+            table {
+                min-width: 100%;
+                font-size: 14px;
+            }
+            th, td {
+                padding: 8px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Time Container Table</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Time</th>
-                    <th>Container</th>
-                    <th>Start</th>
-                    <th>End</th>
-                    <th>Remarks</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>08:00</td>
-                    <td>C-101</td>
-                    <td>Feb 1, 2025</td>
-                    <td>Feb 10, 2025</td>
-                    <td>Checked</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>10:30</td>
-                    <td>C-102</td>
-                    <td>Feb 2, 2025</td>
-                    <td>Feb 12, 2025</td>
-                    <td>Pending</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>13:15</td>
-                    <td>C-103</td>
-                    <td>Feb 3, 2025</td>
-                    <td>Feb 15, 2025</td>
-                    <td>In Progress</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>16:45</td>
-                    <td>C-104</td>
-                    <td>Feb 4, 2025</td>
-                    <td>Feb 20, 2025</td>
-                    <td>Completed</td>
-                </tr>
-            </tbody>
-        </table>
+        <div style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Time</th>
+                        <th>Container</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>08:00</td>
+                        <td>C-101</td>
+                        <td>Feb 1, 2025</td>
+                        <td>Feb 10, 2025</td>
+                        <td>Checked</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>10:30</td>
+                        <td>C-102</td>
+                        <td>Feb 2, 2025</td>
+                        <td>Feb 12, 2025</td>
+                        <td>Pending</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>13:15</td>
+                        <td>C-103</td>
+                        <td>Feb 3, 2025</td>
+                        <td>Feb 15, 2025</td>
+                        <td>In Progress</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>16:45</td>
+                        <td>C-104</td>
+                        <td>Feb 4, 2025</td>
+                        <td>Feb 20, 2025</td>
+                        <td>Completed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>
